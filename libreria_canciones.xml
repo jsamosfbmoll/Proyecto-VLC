@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<libreria xml:lang="es">
+    <almbums>
+        <album>
+            <nombre>Appettite for destruction</nombre>
+            <fecha>1987</fecha>
+            <autor>Guns 'N Roses</autor>
+            <tracks>
+                <track id="1">
+                    <nombre>Welcome to the jungle</nombre>
+                    <duracion>4:40</duracion>
+                    <ruta extension=""></ruta>
+                    <genero id="1"/>
+                </track>
+            </tracks>
+        </album>
+    </almbums>
+
+    <generos>
+        <genero id="1">
+            <nombre>Hard Rock</nombre>
+        </genero>
+        <genero id="2">
+            <nombre>Nu metal</nombre>
+        </genero>
+        <genero id="3">
+            <nombre>Heavy metal</nombre>
+        </genero>
+    </generos>
+
+    <playlists>
+        <playlist>
+            <nombre></nombre>
+            <tracks>
+                <track id=""/>
+            </tracks>
+        </playlist>
+    </playlists>
+</libreria>
