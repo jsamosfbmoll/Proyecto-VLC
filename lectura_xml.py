@@ -9,9 +9,14 @@ def getNombresCanciones():
     raiz, arbol = leerXML()
     tracks = raiz[0][0][3]
     nombresCanciones = []
+
+    if len(tracks) == 0:
+        return []
+
     for track in tracks:
         nombreCancion = track.find("nombre").text
         nombresCanciones.append(nombreCancion)
+    assert isinstance(nombresCanciones, list) and True if len(nombresCanciones) > 0 else False
     return nombresCanciones
 
 if __name__ == "__main__":
