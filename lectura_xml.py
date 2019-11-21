@@ -19,5 +19,18 @@ def getNombresCanciones():
     assert isinstance(nombresCanciones, list) and True if len(nombresCanciones) > 0 else False
     return nombresCanciones
 
+def getRutaCancion(cancion):
+    raiz, arbol = leerXML()
+    albums = raiz.find("albums")
+
+    for album in albums:
+        tracks = album.find("tracks")
+        for track in tracks:
+            if track.find("nombre").text == cancion:
+                rutaCancion = track.find("ruta").text
+    return rutaCancion
+
+
 if __name__ == "__main__":
     assert getNombresCanciones() == ["Welcome to the jungle"]
+    assert getRutaCancion("Welcome to the jungle") == "desktop"
