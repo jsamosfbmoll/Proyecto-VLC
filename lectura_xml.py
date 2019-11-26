@@ -14,15 +14,18 @@ def leerXML():
 def getNombresCanciones():
 
     raiz, arbol = leerXML()
-    tracks = raiz[0][0][3]
+    albums = raiz[0]
     nombresCanciones = []
 
-    if len(tracks) == 0:
-        return []
+    for album in albums:
+        tracks = album[3]
 
-    for track in tracks:
-        nombreCancion = track.find("nombre").text
-        nombresCanciones.append(nombreCancion)
+        if len(tracks) == 0:
+            return []
+
+        for track in tracks:
+            nombreCancion = track.find("nombre").text
+            nombresCanciones.append(nombreCancion)
 
     assert isinstance(nombresCanciones, list) and True if len(nombresCanciones) > 0 else False
 
@@ -50,5 +53,5 @@ def getRutaCancion(cancion):
 
 
 if __name__ == "__main__":
-    assert getNombresCanciones() == ["Welcome to the jungle"]
+    assert len(getNombresCanciones()) == 6
     assert getRutaCancion("Welcome to the jungle") == r"C:\Users\Dual\Desktop"
