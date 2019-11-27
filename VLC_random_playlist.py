@@ -9,15 +9,16 @@ def verificarVLC():
         vlc = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\""
     else:
         print("No tienes VLC")
+        quit()
     return vlc
 
 
-def reproducirCancion():
+def reproducirCanciones():
     rutasCanciones = asignarRutas()
     rutaVLC = verificarVLC()
-    comando = rutaVLC + " " + rutasCanciones
+    comando = rutaVLC + " " + rutasCanciones + " --no-repeat"
     os.popen(comando)
 
 
 if __name__ == "__main__":
-    reproducirCancion()
+    reproducirCanciones()
