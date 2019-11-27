@@ -11,3 +11,12 @@ def reconstruirLista():
         nombresCanciones.remove(cancionesReordenadas[indice])
     assert len(copiaCanciones) == len(cancionesReordenadas)
     return cancionesReordenadas
+
+def asignarRutas():
+    
+    canciones = reconstruirLista()
+    rutaVLC = verificarVLC()
+    rutasCanciones = []
+    for cancion in canciones:
+        rutasCanciones.append(getRutaCancion(cancion))
+    return rutasCanciones
