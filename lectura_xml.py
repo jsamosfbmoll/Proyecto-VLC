@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 
+
 def leerXML():
 
     try:
@@ -10,6 +11,7 @@ def leerXML():
 
     raiz = arbol.getroot()
     return raiz, arbol
+
 
 def getNombresCanciones():
 
@@ -27,9 +29,11 @@ def getNombresCanciones():
             nombreCancion = track.find("nombre").text
             nombresCanciones.append(nombreCancion)
 
-    assert isinstance(nombresCanciones, list) and True if len(nombresCanciones) > 0 else False
+    assert isinstance(nombresCanciones, list)
+    assert True if len(nombresCanciones) > 0 else False
 
     return nombresCanciones
+
 
 def getRutaCancion(cancion):
 
