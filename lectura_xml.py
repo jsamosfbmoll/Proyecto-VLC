@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+from os import access, F_OK
 
 
 def leerXML():
@@ -35,6 +36,13 @@ def getNombresCanciones():
     return nombresCanciones
 
 
+def comprobarRuta(ruta):
+    if access(ruta, F_OK):
+        return True
+    else:
+        return False
+
+
 def getRutaCancion(cancion):
 
     assert isinstance(cancion, str)
@@ -52,6 +60,10 @@ def getRutaCancion(cancion):
 
     assert isinstance(rutaCancion, str)
     assert rutaCancion != ""
+    
+    if comprobarRuta(rutaCancion) == False:
+        print("La ruta" + rutaCancion + ", no es una ruta válida.")
+        quit()
 
     return rutaCancion
 
