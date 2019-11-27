@@ -21,4 +21,4 @@ def asignarRutas():
     for cancion in canciones:
         listaRutasCanciones.append("\"" + getRutaCancion(cancion) + "\"")
     rutasCanciones = " ".join(listaRutasCanciones)
-    return rutasCanciones
+    return rutasCanciones, canciones

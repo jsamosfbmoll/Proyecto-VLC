@@ -13,11 +13,20 @@ def verificarVLC():
     return vlc
 
 
+def mostrarCanciones(canciones):
+    print("Las canciones se reproducirán en este orden: ")
+    for cancion in canciones:
+        print("  " + cancion)
+    return None
+
+
 def reproducirCanciones():
-    rutasCanciones = asignarRutas()
+    rutasCanciones, nombresCanciones = asignarRutas()
     rutaVLC = verificarVLC()
     comando = rutaVLC + " " + rutasCanciones + " --no-repeat"
+    mostrarCanciones(nombresCanciones)
     os.popen(comando)
+    return None
 
 
 if __name__ == "__main__":
