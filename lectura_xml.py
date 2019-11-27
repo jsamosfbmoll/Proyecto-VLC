@@ -1,13 +1,19 @@
 import xml.etree.ElementTree as ET
 from os import access, F_OK
+from tkinter import Tk, messagebox
 
+
+def lanzarError(mensaje):
+    root = Tk().withdraw()
+    messagebox.showerror("Error", mensaje)
+    return None
 
 def leerXML():
 
     try:
         arbol = ET.parse("libreria_canciones.xml")
     except ET.ParseError:
-        print("El XML no esta bien formado")
+        lanzarError("El XML no esta bien formado")
         quit()
 
     raiz = arbol.getroot()
@@ -62,7 +68,7 @@ def getRutaCancion(cancion):
     assert rutaCancion != ""
     
     if comprobarRuta(rutaCancion) == False:
-        print("La ruta" + rutaCancion + ", no es una ruta válida.")
+        lanzarError("La ruta" + rutaCancion + ", no es una ruta válida.")
         quit()
 
     return rutaCancion
