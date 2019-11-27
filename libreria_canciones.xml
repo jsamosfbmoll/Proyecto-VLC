@@ -33,22 +33,42 @@
             <fecha>1980</fecha>
             <autor>AC/DC</autor>
             <tracks>
-                <track id="3">
+                <track id="4">
                     <nombre>Hells bells</nombre>
                     <duracion>5:39</duracion>
                     <ruta extension="">canciones\Breaking Benjamin - Never Again.mp3</ruta>
                     <genero id="1"/>
                 </track>
-                <track>
+                <track id="5">
                     <nombre>Shoot to thrill</nombre>
                     <duracion>5:21</duracion>
                     <ruta extension="">canciones\Breaking Benjamin - The Diary of Jane.mp3</ruta>
                     <genero id="1"/>
                 </track>
-                <track>
+                <track id="6">
                     <nombre>What do you do for money honey</nombre>
                     <duracion>3:46</duracion>
                     <ruta extension="">canciones\Breaking Benjamin-Dance with the devil _Lyrics_.mp3</ruta>
+                    <genero id="1"/>
+                </track>
+            </tracks>
+        </album>
+
+        <album>
+            <nombre>Dark Before Dawn</nombre>
+            <fecha>2015</fecha>
+            <autor>Breakin Benjamin</autor>
+            <tracks>
+                <track id="7">
+                    <nombre>Never Again</nombre>
+                    <duracion>3:43</duracion>
+                    <ruta extension="">canciones\Breaking Benjamin - Never Again.mp3</ruta>
+                    <genero id="1"/>
+                </track>
+                <track id="8">
+                    <nombre>Ashes of Eden</nombre>
+                    <duracion>4:53</duracion>
+                    <ruta extension="">canciones\Breaking Benjamin - Never Again.mp3</ruta>
                     <genero id="1"/>
                 </track>
             </tracks>
