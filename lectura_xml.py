@@ -73,6 +73,9 @@ def getRutaCancion(cancion):
 
     return rutaCancion
 
+def getInformacionCancion(cancion):
+    pass #TODO acabr la función que devuelve un diccionario con la info
+
 
 if __name__ == "__main__":
     assert len(getNombresCanciones()) == 6
