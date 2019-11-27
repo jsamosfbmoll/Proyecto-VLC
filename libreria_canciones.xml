@@ -10,19 +10,19 @@
                 <track id="1">
                     <nombre>Welcome to the jungle</nombre>
                     <duracion>4:40</duracion>
-                    <ruta extension="">C:\Users\Dual\Desktop</ruta>
+                    <ruta extension="">C:\Users\SEBAS\Desktop\Proyecto_VLC\musica\c-tangana-nino-de-elche-un-veneno-video-oficial.mp3</ruta>
                     <genero id="1"/>
                 </track>
                 <track id="2">
                     <nombre>It's so easy</nombre>
                     <duracion>3:59</duracion>
-                    <ruta extension=""></ruta>
+                    <ruta extension="">C:\Users\SEBAS\Desktop\Proyecto_VLC\musica\c-tangana-nino-de-elche-un-veneno-video-oficial.mp3</ruta>
                     <genero id="1"/>
                 </track>
                 <track id="3">
                     <nombre>Nightrain</nombre>
                     <duracion>4:29</duracion>
-                    <ruta extension=""></ruta>
+                    <ruta extension="">C:\Users\SEBAS\Desktop\Proyecto_VLC\musica\c-tangana-nino-de-elche-un-veneno-video-oficial.mp3</ruta>
                     <genero i=""/>
                 </track>
             </tracks>
@@ -36,19 +36,19 @@
                 <track id="3">
                     <nombre>Hells bells</nombre>
                     <duracion>5:39</duracion>
-                    <ruta extension=""></ruta>
+                    <ruta extension="">C:\Users\SEBAS\Desktop\Proyecto_VLC\musica\c-tangana-nino-de-elche-un-veneno-video-oficial.mp3</ruta>
                     <genero id="1"/>
                 </track>
                 <track>
                     <nombre>Shoot to thrill</nombre>
                     <duracion>5:21</duracion>
-                    <ruta extension=""></ruta>
+                    <ruta extension="">C:\Users\SEBAS\Desktop\Proyecto_VLC\musica\Guns N' Roses - Sweet Child O' Mine.mp3</ruta>
                     <genero id="1"/>
                 </track>
                 <track>
                     <nombre>What do you do for money honey</nombre>
                     <duracion>3:46</duracion>
-                    <ruta extension=""></ruta>
+                    <ruta extension="">C:\Users\SEBAS\Desktop\Proyecto_VLC\musica\HipHop-2Pac-Dear_Mama.mp3</ruta>
                     <genero id="1"/>
                 </track>
             </tracks>
