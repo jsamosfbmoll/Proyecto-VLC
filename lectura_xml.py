@@ -68,7 +68,7 @@ def getRutaCancion(cancion):
     assert isinstance(rutaCancion, str)
     assert rutaCancion != ""
 
-    if comprobarRuta(rutaCancion) == False:
+    if comprobarRuta(rutaCancion) is False:
         lanzarError("La ruta" + rutaCancion + ", no es una ruta válida.")
         return None
 
