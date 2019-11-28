@@ -1,4 +1,4 @@
-from aleatoriedad_canciones import *
+from aleatoriedad_canciones import reconstruirLista, asignarRutas
 
 
 def test_aleatoria_cantidad():

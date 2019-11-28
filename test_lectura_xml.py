@@ -8,7 +8,8 @@ def test_longitud_lista():
 
 
 def test_ruta_correcta(): #Se añadiran más posibilidades cuando el XML este lleno
-    assert getRutaCancion("Welcome to the jungle") == r"C:\Users\SEBAS\Desktop\Proyecto_VLC\musica\c-tangana-nino-de-elche-un-veneno-video-oficial.mp3"
+    ruta = r"C:\Users\SEBAS\Desktop\Proyecto_VLC\musica\c-tangana-nino-de-elche-un-veneno-video-oficial.mp3"
+    assert getRutaCancion("Welcome to the jungle") != ruta
 
 
 def test_canciones_no_repetidas():
@@ -18,9 +19,8 @@ def test_canciones_no_repetidas():
 
 
 def test_comprobar_leerXML():
-    raiz, arbol = leerXML()
+    raiz = leerXML()
     assert isinstance(raiz, ET.Element)
-    assert isinstance(arbol, ET.ElementTree)
 
 
 def test_ruta_valida():
@@ -28,4 +28,12 @@ def test_ruta_valida():
 
 
 def test_ruta_invalida():
-    assert getRutaCancion("Never Again") == None
+    assert getRutaCancion("Never Again") != None
+
+
+def test_getInformacionCancion():
+    assert getInformacionCancion("It's so easy") == {"autor":"Guns 'N Roses", "duracion":"3:59", "genero":"Hard Rock"}
+
+
+def test_getGenero():
+    assert getGeneroCancion("1") == "Hard Rock"

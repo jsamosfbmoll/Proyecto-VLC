@@ -8,6 +8,7 @@ def lanzarError(mensaje):
     messagebox.showerror("Error", mensaje)
     return None
 
+
 def leerXML():
 
     try:
@@ -17,12 +18,12 @@ def leerXML():
         quit()
 
     raiz = arbol.getroot()
-    return raiz, arbol
+    return raiz
 
 
 def getNombresCanciones():
 
-    raiz, arbol = leerXML()
+    raiz = leerXML()
     albums = raiz[0]
     nombresCanciones = []
 
@@ -54,7 +55,7 @@ def getRutaCancion(cancion):
     assert isinstance(cancion, str)
     assert cancion != ""
 
-    raiz, arbol = leerXML()
+    raiz = leerXML()
     albums = raiz.find("albums")
     rutaCancion = ""
 
@@ -66,15 +67,41 @@ def getRutaCancion(cancion):
 
     assert isinstance(rutaCancion, str)
     assert rutaCancion != ""
-    
+
     if comprobarRuta(rutaCancion) == False:
         lanzarError("La ruta" + rutaCancion + ", no es una ruta válida.")
         return None
 
     return rutaCancion
 
+
+def getGeneroCancion(idGenero):
+
+    raiz = leerXML()
+    generos = raiz.find("generos")
+    for genero in generos:
+        if genero.attrib["id"] == "1":
+            generoNombre = genero.find("nombre").text
+
+    return generoNombre
+
+
 def getInformacionCancion(cancion):
-    pass #TODO acabr la función que devuelve un diccionario con la info
+    raiz = leerXML()
+
+    albums = raiz.find("albums")
+    informacionCancion = {}
+
+    for album in albums:
+        tracks = album.find("tracks")
+        autor = album.find("autor").text
+        for track in tracks:
+            if track.find("nombre").text == cancion:
+                informacionCancion["autor"] = autor
+                informacionCancion["duracion"] = track.find("duracion").text
+                generoId = track.find("genero").attrib
+                informacionCancion["genero"] = getGeneroCancion(generoId["id"])
+    return informacionCancion
 
 
 if __name__ == "__main__":
