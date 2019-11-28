@@ -24,15 +24,18 @@ def test_comprobar_leerXML():
 
 
 def test_ruta_valida():
-    assert comprobarRuta("__pycache__") == True
+    assert comprobarRuta("__pycache__") is True
 
 
 def test_ruta_invalida():
-    assert getRutaCancion("Never Again") != None
+    assert getRutaCancion("Never Again") is not None
 
 
 def test_getInformacionCancion():
-    assert getInformacionCancion("It's so easy") == {"autor":"Guns 'N Roses", "duracion":"3:59", "genero":"Hard Rock"}
+    infoCanciones = {"autor": "Guns 'N Roses",
+                     "duracion": "3:59",
+                     "genero": "Hard Rock"}
+    assert getInformacionCancion("It's so easy") == infoCanciones
 
 
 def test_getGenero():
