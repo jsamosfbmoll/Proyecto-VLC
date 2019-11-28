@@ -69,7 +69,7 @@ def getRutaCancion(cancion):
     
     if comprobarRuta(rutaCancion) == False:
         lanzarError("La ruta" + rutaCancion + ", no es una ruta válida.")
-        quit()
+        return None
 
     return rutaCancion
 

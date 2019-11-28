@@ -26,7 +26,12 @@ def asignarRutas():
     listaRutasCanciones = []
 
     for cancion in canciones:
-        listaRutasCanciones.append("\"" + getRutaCancion(cancion) + "\"")
+        ruta = getRutaCancion(cancion)
+        
+        if ruta == None:
+            canciones.remove(cancion)
+        else:
+            listaRutasCanciones.append("\"" + ruta + "\"")
         
     rutasCanciones = " ".join(listaRutasCanciones)
     return rutasCanciones, canciones
