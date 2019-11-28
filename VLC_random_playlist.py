@@ -45,3 +45,4 @@ def reproducirCanciones():
 
 if __name__ == "__main__":
     reproducirCanciones()
+    input()
