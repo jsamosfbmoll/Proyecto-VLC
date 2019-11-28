@@ -23,9 +23,10 @@ def reconstruirLista():
 def asignarRutas():
 
     canciones = reconstruirLista()
+    cancionesCopia = canciones[:]
     listaRutasCanciones = []
 
-    for cancion in canciones:
+    for cancion in cancionesCopia:
         ruta = getRutaCancion(cancion)
         
         if ruta == None:
