@@ -80,7 +80,7 @@ def getGeneroCancion(idGenero):
     raiz = leerXML()
     generos = raiz.find("generos")
     for genero in generos:
-        if genero.attrib["id"] == "1":
+        if genero.attrib["id"] == idGenero:
             generoNombre = genero.find("nombre").text
 
     return generoNombre
@@ -105,5 +105,6 @@ def getInformacionCancion(cancion):
 
 
 if __name__ == "__main__":
-    assert len(getNombresCanciones()) == 6
-    assert getRutaCancion("Welcome to the jungle") == r"C:\Users\Dual\Desktop"
+    canciones = getNombresCanciones()
+    for i in canciones:
+        print(getInformacionCancion(i))

@@ -23,7 +23,7 @@
                     <nombre>Nightrain</nombre>
                     <duracion>4:29</duracion>
                     <ruta extension="">canciones\Breaking Benjamin-Dance with the devil _Lyrics_.mp3</ruta>
-                    <genero i=""/>
+                    <genero id="1"/>
                 </track>
             </tracks>
         </album>
