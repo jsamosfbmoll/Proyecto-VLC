@@ -8,13 +8,13 @@ Es un programa para Windows que genera una lista aleatoria de canciones a partir
 
 Usando la librería xml.etree.ElementTree para parsear el xml devuelve el nombre de las canciones y el módulo que se encarga de la capa lógica reordena la lista usando la librería random.
 
-El módulo que representa la capa de servicios (la que invoca el VLC) muestra por orden las canciones en el que se van a reproducir, por cada canción muestra la información correspondiente.
+El módulo que representa la capa de servicios (la que invoca el VLC) contiene un método que muestra por orden las canciones en el que se van a reproducir, por cada canción muestra la información correspondiente.
 
-El VLC se ejecuta automáticamente sin necesidad que el usuario deba interactuar con el programa.
+El VLC se ejecuta automáticamente sin necesidad que el usuario deba interactuar con el programa a excepción de indicarle donde se encuentra el XML.
 
 ## Estructura del programa
 
-El programa esta divido en tres capas y tres módulos correspondientes para cada capa más un módulo main que ejecuta el programa.
+El programa esta divido en tres capas y tres módulos correspondientes para cada capa más un módulo main que ejecuta el programa y contiene todas las llamadas a funciones.
 
 1. lectura_xml.py
 2. aleatoriedad_canciones.py
@@ -35,7 +35,7 @@ En este fichero python se busca la ruta al VLC, en caso de no encontralo debido 
 
 ### main.py
 
-Módulo con el que se inicia el programa, contiene una llamada a una función del fichero VLC_random_playlist.py y un "input" para que la consola no se cierre instantaneamente y poder ver así, la información de las canciones.
+Módulo con el que se inicia el programa, contiene todas las llamadas a las funciones de los demás módulos y permite que el código se ejecute correctamente.
 
 ## Módulos externos utilizados
 
@@ -43,3 +43,4 @@ Módulo con el que se inicia el programa, contiene una llamada a una función de
 2. os
 3. random
 4. tkinter
+5. tkinter.filedialog
