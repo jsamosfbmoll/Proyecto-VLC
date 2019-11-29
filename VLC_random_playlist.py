@@ -41,8 +41,3 @@ def reproducirCanciones():
 
     os.popen(comando)
     return None
-
-
-if __name__ == "__main__":
-    reproducirCanciones()
-    input()
