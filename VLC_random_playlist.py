@@ -1,9 +1,7 @@
-from aleatoriedad_canciones import reconstruirLista, asignarRutas
-from lectura_xml import getInformacionCancion, lanzarError
 import os
 
 
-def verificarVLC():
+def verificarVLC(lanzarError):
 
     if os.access(r"C:\Program Files (x86)\VideoLAN\VLC\vlc.exe", os.F_OK):
         vlc = "\"C:\\Program Files (x86)\\VideoLAN\\VLC\\vlc.exe\""
@@ -16,12 +14,12 @@ def verificarVLC():
     return vlc
 
 
-def mostrarCanciones(canciones):
+def mostrarCanciones(canciones, getInformacionCancion, raiz):
 
     print("Las canciones se reproducirán en este orden: ")
 
     for cancion in canciones:
-        informacionCancion = getInformacionCancion(cancion)
+        informacionCancion = getInformacionCancion(raiz, cancion)
         print("  " + cancion)
         print("     Autor: " + informacionCancion["autor"])
         print("     Duración: " + informacionCancion["duracion"])
@@ -31,13 +29,9 @@ def mostrarCanciones(canciones):
     return None
 
 
-def reproducirCanciones():
-
-    rutasCanciones, nombresCanciones = asignarRutas()
-    rutaVLC = verificarVLC()
+def reproducirCanciones(rutasCanciones, rutaVLC):
 
     comando = rutaVLC + " " + rutasCanciones + " --no-repeat"
-    mostrarCanciones(nombresCanciones)
 
     os.popen(comando)
     return None

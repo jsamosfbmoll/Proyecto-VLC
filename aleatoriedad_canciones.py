@@ -1,10 +1,8 @@
-from lectura_xml import getNombresCanciones, getRutaCancion
 import random
 
 
-def reconstruirLista():
+def reconstruirLista(nombresCanciones):
 
-    nombresCanciones = getNombresCanciones()
     copiaCanciones = nombresCanciones[:]
 
     assert isinstance(nombresCanciones, list)
@@ -20,14 +18,13 @@ def reconstruirLista():
     return cancionesReordenadas
 
 
-def asignarRutas():
+def asignarRutas(canciones, getRutaCancion, raiz):
 
-    canciones = reconstruirLista()
     cancionesCopia = canciones[:]
     listaRutasCanciones = []
 
     for cancion in cancionesCopia:
-        ruta = getRutaCancion(cancion)
+        ruta = getRutaCancion(raiz, cancion)
 
         if ruta is None:
             canciones.remove(cancion)
@@ -35,4 +32,4 @@ def asignarRutas():
             listaRutasCanciones.append("\"" + ruta + "\"")
 
     rutasCanciones = " ".join(listaRutasCanciones)
-    return rutasCanciones, canciones
+    return rutasCanciones

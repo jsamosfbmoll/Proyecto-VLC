@@ -9,10 +9,10 @@ def lanzarError(mensaje):
     return None
 
 
-def leerXML():
+def leerXML(rutaXML):
 
     try:
-        arbol = ET.parse("libreria_canciones.xml")
+        arbol = ET.parse(rutaXML)
     except ET.ParseError:
         lanzarError("El XML no esta bien formado")
         quit()
@@ -21,9 +21,8 @@ def leerXML():
     return raiz
 
 
-def getNombresCanciones():
+def getNombresCanciones(raiz):
 
-    raiz = leerXML()
     albums = raiz[0]
     nombresCanciones = []
 
@@ -50,12 +49,11 @@ def comprobarRuta(ruta):
         return False
 
 
-def getRutaCancion(cancion):
+def getRutaCancion(raiz, cancion):
 
     assert isinstance(cancion, str)
     assert cancion != ""
 
-    raiz = leerXML()
     albums = raiz.find("albums")
     rutaCancion = ""
 
@@ -75,9 +73,8 @@ def getRutaCancion(cancion):
     return rutaCancion
 
 
-def getGeneroCancion(idGenero):
+def getGeneroCancion(raiz, idGenero):
 
-    raiz = leerXML()
     generos = raiz.find("generos")
     for genero in generos:
         if genero.attrib["id"] == idGenero:
@@ -86,8 +83,7 @@ def getGeneroCancion(idGenero):
     return generoNombre
 
 
-def getInformacionCancion(cancion):
-    raiz = leerXML()
+def getInformacionCancion(raiz, cancion):
 
     albums = raiz.find("albums")
     informacionCancion = {}
@@ -100,7 +96,7 @@ def getInformacionCancion(cancion):
                 informacionCancion["autor"] = autor
                 informacionCancion["duracion"] = track.find("duracion").text
                 generoId = track.find("genero").attrib
-                informacionCancion["genero"] = getGeneroCancion(generoId["id"])
+                informacionCancion["genero"] = getGeneroCancion(raiz, generoId["id"])
     return informacionCancion
 
 
