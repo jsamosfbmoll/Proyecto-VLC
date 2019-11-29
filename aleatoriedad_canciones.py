@@ -28,11 +28,11 @@ def asignarRutas():
 
     for cancion in cancionesCopia:
         ruta = getRutaCancion(cancion)
-        
-        if ruta == None:
+
+        if ruta is None:
             canciones.remove(cancion)
         else:
             listaRutasCanciones.append("\"" + ruta + "\"")
-        
+
     rutasCanciones = " ".join(listaRutasCanciones)
     return rutasCanciones, canciones
