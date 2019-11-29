@@ -2,13 +2,13 @@ from VLC_random_playlist import *
 from aleatoriedad_canciones import *
 from lectura_xml import *
 from tkinter import Tk
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import askopenfilename as aofn
 
 if __name__ == "__main__":
     root = Tk().withdraw()
     tipoDeFichero = (("Archivos XML", "*.xml"),)
     titulo = "Elige XML"
-    rutaXML = askopenfilename(initialdir=".", title=titulo, filetypes=tipoDeFichero)
+    rutaXML = aofn(initialdir=".", title=titulo, filetypes=tipoDeFichero)
 
     raiz = leerXML(rutaXML)
     nombresCanciones = getNombresCanciones(raiz)
