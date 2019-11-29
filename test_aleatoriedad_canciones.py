@@ -1,12 +1,13 @@
 from aleatoriedad_canciones import reconstruirLista, asignarRutas
+from lectura_xml import getNombresCanciones, leerXML, getRutaCancion
 
 
 def test_aleatoria_cantidad():
-    assert len(reconstruirLista()) >= 8
+    assert len(reconstruirLista(getNombresCanciones(leerXML("libreria_canciones.xml")))) >= 8
 
 
 def test_aleatoria_no_repetidos():
-    canciones = reconstruirLista()
+    canciones = reconstruirLista(getNombresCanciones(leerXML("libreria_canciones.xml")))
     for cancion in canciones:
         if canciones.count(cancion) > 1:
             assert False
@@ -14,8 +15,5 @@ def test_aleatoria_no_repetidos():
 
 
 def test_asignar_rutas_primer_valor():
-    assert isinstance(asignarRutas()[0], str)
-
-
-def test_asignar_rutas_segundo_valor():
-    assert isinstance(asignarRutas()[1], list)
+    canciones = reconstruirLista(getNombresCanciones(leerXML("libreria_canciones.xml")))
+    assert isinstance(asignarRutas(canciones, getRutaCancion, leerXML("libreria_canciones.xml")), str)
