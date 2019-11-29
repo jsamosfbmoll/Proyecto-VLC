@@ -86,13 +86,4 @@
             <nombre>Heavy metal</nombre>
         </genero>
     </generos>
-
-    <playlists>
-        <playlist>
-            <nombre></nombre>
-            <tracks>
-                <track id=""/>
-            </tracks>
-        </playlist>
-    </playlists>
 </libreria>
