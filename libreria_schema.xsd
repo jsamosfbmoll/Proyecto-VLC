@@ -1,0 +1,74 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="nombre" type="xs:string"/>
+  <xs:element name="duracion" type="xs:string"/>
+  <xs:element name="ruta">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="extension" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="genero">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="nombre" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:byte" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="track">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nombre"/>
+        <xs:element ref="duracion"/>
+        <xs:element ref="ruta"/>
+        <xs:element ref="genero"/>
+      </xs:sequence>
+      <xs:attribute type="xs:byte" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fecha" type="xs:short"/>
+  <xs:element name="autor" type="xs:string"/>
+  <xs:element name="tracks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="track" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="album">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nombre"/>
+        <xs:element ref="fecha"/>
+        <xs:element ref="autor"/>
+        <xs:element ref="tracks"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="albums">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="album" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="generos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="genero" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="libreria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="albums"/>
+        <xs:element ref="generos"/>
+      </xs:sequence>
+      <xs:attribute ref="xml:lang"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

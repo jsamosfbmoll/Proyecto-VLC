@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<libreria xml:lang="es">
+<libreria xml:lang="es" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="libreria_schema.xsd">
     <albums>
         <album>
             <nombre>Appettite for destruction</nombre>
