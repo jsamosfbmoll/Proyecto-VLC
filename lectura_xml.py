@@ -15,6 +15,7 @@ def leerXML(rutaXML):
         arbol = ET.parse(rutaXML)
     except ET.ParseError:
         lanzarError("El XML no esta bien formado")
+        input()
         quit()
 
     raiz = arbol.getroot()
@@ -23,18 +24,34 @@ def leerXML(rutaXML):
 
 def getNombresCanciones(raiz):
 
-    albums = raiz[0]
+    try:
+        albums = raiz[0]
+    except IndexError:
+        print("El XML indicado no es correcto")
+        input()
+        quit()
+
     nombresCanciones = []
 
     for album in albums:
-        tracks = album[3]
+        try:
+            tracks = album[3]
+        except IndexError:
+            print("El XML indicado no es correcto")
+            input()
+            quit()
 
         if len(tracks) == 0:
             return []
 
         for track in tracks:
-            nombreCancion = track.find("nombre").text
-            nombresCanciones.append(nombreCancion)
+            try:
+                nombreCancion = track.find("nombre").text
+                nombresCanciones.append(nombreCancion)
+            except AttributeError:
+                print("El XML indicado no es correcto")
+                input()
+                quit()
 
     assert isinstance(nombresCanciones, list)
     assert True if len(nombresCanciones) > 0 else False
@@ -54,14 +71,32 @@ def getRutaCancion(raiz, cancion):
     assert isinstance(cancion, str)
     assert cancion != ""
 
-    albums = raiz.find("albums")
+    try:
+        albums = raiz.find("albums")
+        albums.text
+    except AttributeError:
+        print("El XML indicado no es correcto")
+        input()
+        quit()
+
     rutaCancion = ""
 
     for album in albums:
-        tracks = album.find("tracks")
+        try:
+            tracks = album.find("tracks")
+            tracks.text
+        except AttributeError:
+            print("El XML indicado no es correcto")
+            input()
+            quit()
         for track in tracks:
-            if track.find("nombre").text == cancion:
-                rutaCancion = track.find("ruta").text
+            try:
+                if track.find("nombre").text == cancion:
+                    rutaCancion = track.find("ruta").text
+            except AttributeError:
+                print("El XML indicado no es correcto")
+                input()
+                quit()
 
     assert isinstance(rutaCancion, str)
     assert rutaCancion != ""
@@ -75,28 +110,57 @@ def getRutaCancion(raiz, cancion):
 
 def getGeneroCancion(raiz, idGenero):
 
-    generos = raiz.find("generos")
+    try:
+        generos = raiz.find("generos")
+        generos.text
+    except AttributeError:
+        print("El XML indicado no es correcto")
+        input()
+        quit()
+
     for genero in generos:
-        if genero.attrib["id"] == idGenero:
-            generoNombre = genero.find("nombre").text
+        try:
+            if genero.attrib["id"] == idGenero:
+                generoNombre = genero.find("nombre").text
+        except AttributeError:
+            print("El XML indicado no es correcto")
+            input()
+            quit()
 
     return generoNombre
 
 
 def getInformacionCancion(raiz, cancion):
 
-    albums = raiz.find("albums")
+    try:
+        albums = raiz.find("albums")
+        albums.text
+    except AttributeError:
+        print("El XML indicado no es correcto")
+        input()
+        quit()
     informacionCancion = {}
 
     for album in albums:
-        tracks = album.find("tracks")
-        autor = album.find("autor").text
+        try:
+            tracks = album.find("tracks")
+            autor = album.find("autor").text
+        except AttributeError:
+            print("El XML indicado no es correcto")
+            input()
+            quit()
         for track in tracks:
-            if track.find("nombre").text == cancion:
-                informacionCancion["autor"] = autor
-                informacionCancion["duracion"] = track.find("duracion").text
-                generoId = track.find("genero").attrib
-                informacionCancion["genero"] = getGeneroCancion(raiz, generoId["id"])
+            try:
+                if track.find("nombre").text == cancion:
+                    informacionCancion["autor"] = autor
+                    informacionCancion["duracion"] = track.find("duracion").text
+                    generoId = track.find("genero").attrib
+                    genero = getGeneroCancion(raiz, generoId["id"])
+                    informacionCancion["genero"] = genero
+            except AttributeError:
+                print("El XML indicado no es correcto")
+                input()
+                quit()
     return informacionCancion
 
 
