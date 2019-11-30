@@ -3,7 +3,7 @@ from lectura_xml import getNombresCanciones, leerXML, getRutaCancion
 
 
 def test_aleatoria_cantidad():
-    assert len(reconstruirLista(getNombresCanciones(leerXML("libreria_canciones.xml")))) >= 8
+    assert len(reconstruirLista(getNombresCanciones(leerXML("libreria_canciones.xml")))) >= 20
 
 
 def test_aleatoria_no_repetidos():
