@@ -9,8 +9,8 @@ def test_longitud_lista():
 
 
 def test_ruta_correcta(): #Se añadiran más posibilidades cuando el XML este lleno
-    ruta = r"C:\Users\SEBAS\Desktop\Proyecto_VLC\musica\c-tangana-nino-de-elche-un-veneno-video-oficial.mp3"
-    assert getRutaCancion(raiz, "Welcome to the jungle") != ruta
+    ruta = r"canciones\Welcome to the Jungle.mp3"
+    assert getRutaCancion(raiz, "Welcome to the jungle") == ruta
 
 
 def test_canciones_no_repetidas():
